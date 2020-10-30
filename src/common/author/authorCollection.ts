@@ -15,9 +15,8 @@ export interface IUser {
     modification_notes: ModificationNote[]
 }
 
-const Schema = mongoose.Schema;
 
-const schema = new Schema({
+const schema = new mongoose.Schema({
   name: {
     type: {
       first_name: String,

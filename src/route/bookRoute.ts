@@ -1,32 +1,33 @@
 import { Application, Request, Response } from 'express';
-import { UserController } from '../common/author/authorController';
+import {BookController} from "../common/book/bookController"
 
-export class BookInfo {
+export class BookRoute {
 
-  private user_controller: UserController = new UserController();
+  private book_controller = new BookController();
 
   public route(app: Application) {
 
-    app.get('/books',bookController.allBooks)
+    app.get('/book/:id',(req: Request, res: Response)=>{
+      this.book_controller.get_book(req,res)
+    })
 
-    app.get('/api/user/:id', (req: Request, res: Response) => {
-      this.user_controller.get_user(req, res);
+    app.get('/books/',(req: Request, res: Response)=>{
+      this.book_controller.get_all_book(req,res)
+    })
+    app.get('/book/',(req: Request, res: Response)=>{
+      this.book_controller.paging_book(req,res)
+    })
+    app.post('/book/',(req:Request,res:Response)=>{
+      this.book_controller.create_book(req,res)
+    })
+
+    app.put('/book/:id', (req: Request, res: Response) => {
+      this.book_controller.update_book(req, res);
     });
 
-    app.put('/api/user/:id', (req: Request, res: Response) => {
-      this.user_controller.update_user(req, res);
-    });
-
-    app.delete('/api/user/:id', (req: Request, res: Response) => {
-      this.user_controller.delete_user(req, res);
+    app.delete('/book/:id', (req: Request, res: Response) => {
+      this.book_controller.delete_book(req, res);
     });
 
   }
 }
-
-
-app.get('/books',bookController.allBooks)
-app.get('/book/:id',bookController.getBook)
-app.post('/book',bookController.addBook)
-app.delete('/book/:id',bookController.deleteBook)
-app.put('/book/:id',bookController.updateBook)

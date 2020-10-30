@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const model_1 = require("../../module/model");
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const schema = new Schema({
+const schema = new mongoose.Schema({
     name: {
         type: {
             first_name: String,

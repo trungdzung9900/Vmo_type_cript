@@ -1,27 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BookInfo = void 0;
-const authorController_1 = require("../common/author/authorController");
-class BookInfo {
+exports.BookRoute = void 0;
+const bookController_1 = require("../common/book/bookController");
+class BookRoute {
     constructor() {
-        this.user_controller = new authorController_1.UserController();
+        this.book_controller = new bookController_1.BookController();
     }
     route(app) {
-        app.get('/books', bookController.allBooks);
-        app.get('/api/user/:id', (req, res) => {
-            this.user_controller.get_user(req, res);
+        app.get('/book/:id', (req, res) => {
+            this.book_controller.get_book(req, res);
         });
-        app.put('/api/user/:id', (req, res) => {
-            this.user_controller.update_user(req, res);
+        app.get('/books/', (req, res) => {
+            this.book_controller.get_all_book(req, res);
         });
-        app.delete('/api/user/:id', (req, res) => {
-            this.user_controller.delete_user(req, res);
+        app.get('/book/', (req, res) => {
+            this.book_controller.paging_book(req, res);
+        });
+        app.post('/book/', (req, res) => {
+            this.book_controller.create_book(req, res);
+        });
+        app.put('/book/:id', (req, res) => {
+            this.book_controller.update_book(req, res);
+        });
+        app.delete('/book/:id', (req, res) => {
+            this.book_controller.delete_book(req, res);
         });
     }
 }
-exports.BookInfo = BookInfo;
-app.get('/books', bookController.allBooks);
-app.get('/book/:id', bookController.getBook);
-app.post('/book', bookController.addBook);
-app.delete('/book/:id', bookController.deleteBook);
-app.put('/book/:id', bookController.updateBook);
+exports.BookRoute = BookRoute;
