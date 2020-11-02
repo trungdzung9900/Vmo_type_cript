@@ -85,7 +85,6 @@ class UserController {
                         email: req.body.email ? req.body.email : user_data.email,
                         phone_number: req.body.phone_number ? req.body.phone_number : user_data.phone_number,
                         gender: req.body.gender ? req.body.gender : user_data.gender,
-                        is_deleted: req.body.is_deleted ? req.body.is_deleted : user_data.is_deleted,
                         modification_notes: user_data.modification_notes
                     };
                     this.user_service.updateUser(user_params, (error) => {

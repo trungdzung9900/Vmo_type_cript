@@ -10,9 +10,9 @@ export interface IBook {
   modification_notes: ModificationNote[]
 }
 const BookSchema = new mongoose.Schema({
-  bookID:{
-    type:String,
-    required:true,
+  bookID: {
+    type: String,
+    required: true,
     unique: true,
   },
   title: {

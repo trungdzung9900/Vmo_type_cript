@@ -72,7 +72,7 @@ class BookController {
         });
     }
     update_book(req, res) {
-        if (req.params.id && req.body.id || req.body.title || req.body.author || req.body.version || req.body.description) {
+        if (req.params.id && req.body.bookID || req.body.id || req.body.title || req.body.author || req.body.version || req.body.description) {
             const book_filter = { _id: req.params.id };
             this.book_service.filterBook(book_filter, (err, book_data) => {
                 if (err) {

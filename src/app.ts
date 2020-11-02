@@ -3,11 +3,13 @@ import * as bodyParser from 'body-parser';
 import * as mongoose from 'mongoose';
 import { UserRoutes } from './route/userRoute';
 import { BookRoute } from './route/bookRoute';
+import * as dotenv from 'dotenv';
+dotenv.config();
 class App {
   public app: express.Application;
-  public mongoUrl: string = 'mongodb://rubydog99:dungpro123a@cluster0-shard-00-00.ruuvi.mongodb.net:27017,cluster0-shard-00-01.ruuvi.mongodb.net:27017,cluster0-shard-00-02.ruuvi.mongodb.net:27017/test?ssl=true&replicaSet=atlas-7j78bq-shard-0&authSource=admin&retryWrites=true&w=majority';
+  public mongoUrl: string = process.env.DB_CONNECT;
   private user_routes: UserRoutes = new UserRoutes();
-  private book_routes : BookRoute = new BookRoute();
+  private book_routes: BookRoute = new BookRoute();
 
   constructor() {
     this.app = express();
@@ -24,7 +26,7 @@ class App {
   }
 
   private mongoSetup(): void {
-   const DB = mongoose.connect(this.mongoUrl,
+    const DB = mongoose.connect(this.mongoUrl,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,

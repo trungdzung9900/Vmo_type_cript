@@ -7,19 +7,19 @@ export class UserRoutes {
 
   public route(app: Application) {
 
-    app.post('/user', (req: Request, res: Response) => {
+    app.post('/author', (req: Request, res: Response) => {
       this.user_controller.create_user(req, res);
     });
-    
-    app.get('/user/:id', (req: Request, res: Response) => {
+
+    app.get('/author/:id', (req: Request, res: Response) => {
       this.user_controller.get_user(req, res);
     });
 
-    app.put('/user/:id', (req: Request, res: Response) => {
+    app.put('/author/:id', (req: Request, res: Response) => {
       this.user_controller.update_user(req, res);
     });
 
-    app.delete('/user/:id', (req: Request, res: Response) => {
+    app.delete('/author/:id', (req: Request, res: Response) => {
       this.user_controller.delete_user(req, res);
     });
 

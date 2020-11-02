@@ -10,8 +10,7 @@ export interface IUser {
     };
     email: string;
     phone_number: string;
-    gender: string  ;
-    is_deleted?: string;
+    gender: string ;
     modification_notes: ModificationNote[]
 }
 
@@ -27,10 +26,6 @@ const schema = new mongoose.Schema({
   email: String,
   phone_number: String,
   gender: String,
-  is_deleted: {
-    type: Boolean,
-    default: false
-  },
   modification_notes: [ModificationNote]
 });
 

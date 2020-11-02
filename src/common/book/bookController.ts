@@ -9,7 +9,7 @@ export class BookController {
     if (req.body.bookID && req.body.title && req.body.author
       && req.body.version && req.body.description) {
       const book_params: IBook = {
-        bookID : req.body.bookID,
+        bookID: req.body.bookID,
         title: req.body.title,
         author: req.body.author,
         version: req.body.version,
@@ -69,7 +69,7 @@ export class BookController {
 
   }
   public update_book(req: Request, res: Response) {
-    if (req.params.id && req.body.id || req.body.title || req.body.author || req.body.version || req.body.description) {
+    if (req.params.id && req.body.bookID || req.body.id || req.body.title || req.body.author || req.body.version || req.body.description) {
       const book_filter = { _id: req.params.id };
       this.book_service.filterBook(book_filter, (err: any, book_data: IBook) => {
         if (err) {
@@ -83,7 +83,7 @@ export class BookController {
           })
           const data_params: IBook = {
             _id: req.params.id,
-            bookID : req.body.bookID,
+            bookID: req.body.bookID,
             title: req.body.title ? req.body.title : book_data.title,
             author: req.body.author ? req.body.author : book_data.author,
             version: req.body.version ? req.body.version : book_data.version,

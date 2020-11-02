@@ -13,10 +13,6 @@ const schema = new mongoose.Schema({
     email: String,
     phone_number: String,
     gender: String,
-    is_deleted: {
-        type: Boolean,
-        default: false
-    },
     modification_notes: [model_1.ModificationNote]
 });
 exports.default = mongoose.model('users', schema);

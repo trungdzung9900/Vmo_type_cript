@@ -5,9 +5,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const userRoute_1 = require("./route/userRoute");
 const bookRoute_1 = require("./route/bookRoute");
+const dotenv = require("dotenv");
+dotenv.config();
 class App {
     constructor() {
-        this.mongoUrl = 'mongodb://rubydog99:dungpro123a@cluster0-shard-00-00.ruuvi.mongodb.net:27017,cluster0-shard-00-01.ruuvi.mongodb.net:27017,cluster0-shard-00-02.ruuvi.mongodb.net:27017/test?ssl=true&replicaSet=atlas-7j78bq-shard-0&authSource=admin&retryWrites=true&w=majority';
+        this.mongoUrl = process.env.DB_CONNECT;
         this.user_routes = new userRoute_1.UserRoutes();
         this.book_routes = new bookRoute_1.BookRoute();
         this.app = express();

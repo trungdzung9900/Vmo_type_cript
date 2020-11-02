@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// import {IBook} from './bookCollections';
 const bookCollections_1 = require("./bookCollections");
 class BookService {
     createBook(book_params, callback) {
@@ -18,7 +17,8 @@ class BookService {
         bookCollections_1.default.findOneAndUpdate(query, book_params, callback);
     }
     deleteBook(_id, callback) {
-        bookCollections_1.default.find({}, callback);
+        const query = { _id };
+        bookCollections_1.default.deleteOne(query, callback);
     }
     pagingBook(limit, page, callback) {
         const startIndex = (page - 1) * limit;
