@@ -27,12 +27,12 @@
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.</br>
 Be side that I use the TypeORM and Postgresql to build database.</br>
 <a>My idea to work on this project is:</a></br>
-- When start the sever i will check the dabase existed the transaction element or not. If no data found, i will read the CSV file and write the transaction to database </br>
+- When start the sever i will check the dabase existed the transaction element or not. If no data found, i will read the CSV file and write the transaction to database with 5 columns: id, timestamp, transaction_types, token, amount  </br>
 - Right now the process for import data to database sever is longtime. You have to waited long time to insert fully value to database. So i think you can test with a batch of data to check the query function work or not. </br>
-- You can query on domain: <p>localhost:3000/transaction</p> after the project started:</br>
-  - I support query a token: <a>localhost:3000/transaction?token=BTC</a> </br> 
-  - I support query a date with dateStart and dateEnd params: <a>localhost:3000/transaction?dateStart=1571966499&dateEnd=1571966685</a> </br> 
-  - I support query a date and a token with dateStart,dateEnd and token params: <a>localhost:3000/transaction?dateStart=1571966499&dateEnd=1571966685&token=BTC</a> </br>
+- You can query on domain: <a href="localhost:3000/transaction">localhost:3000/transaction</p> after the project started:</br>
+  - I support query a token: <a href="localhost:3000/transaction?token=BTC">localhost:3000/transaction?token=BTC</a> </br> 
+  - I support query a date with dateStart and dateEnd params: <a href="localhost:3000/transaction?dateStart=1571966499&dateEnd=1571966685">>localhost:3000/transaction?dateStart=1571966499&dateEnd=1571966685</a> </br> 
+  - I support query a date and a token with dateStart,dateEnd and token params: <a href="localhost:3000/transaction?dateStart=1571966499&dateEnd=1571966685&token=BTC">localhost:3000/transaction?dateStart=1571966499&dateEnd=1571966685&token=BTC</a> </br>
 
 I decision with this idea because: </br>
  - Writing value to database will make the system easier to maintain and reuse.
